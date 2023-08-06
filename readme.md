@@ -7,6 +7,9 @@
 ```
     sudo chmod +x /home/install.sh
 ```
-
+## Start the installation
+```
+    sudo /home/install.sh
+```
 
 
