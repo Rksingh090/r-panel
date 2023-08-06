@@ -1,4 +1,4 @@
-# Download the binary 
+## Download the binary 
 ```
     curl -fsSL -o /app/rpanel/rpanel https://raw.githubusercontent.com/Rksingh090/r-panel/main/rpanel
 ```
