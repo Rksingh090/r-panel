@@ -1,16 +1,11 @@
 ## Download the binary 
 ```
-    curl -fsSL -o /app/rpanel/rpanel https://raw.githubusercontent.com/Rksingh090/r-panel/main/rpanel
+    sudo curl -fsSL -o /home/install.sh https://raw.githubusercontent.com/Rksingh090/r-panel/main/install.sh
 ```
 
 ## Give Executable Permission 
 ```
-    sudo chmod +x /app/rpanel/rpanel
-```
-
-## start the application
-```
-    ./app/rpanel/rpanel
+    sudo chmod +x /home/install.sh
 ```
 
 
