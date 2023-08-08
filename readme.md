@@ -57,3 +57,8 @@ One liner
 ```
 sudo curl -fsSL -o /home/install.sh https://raw.githubusercontent.com/Rksingh090/r-panel/master/install.sh && sudo chmod +x /home/install.sh && sudo /home/install.sh
 ```
+
+
+## Authors
+
+- [@Rksing090 (Rishab Singh)](https://www.github.com/Rksingh090)
