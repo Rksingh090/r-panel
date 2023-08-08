@@ -72,7 +72,7 @@ fi
 
 
 # Set the URL of the file on GitHub
-github_file_url="https://raw.githubusercontent.com/Rksingh090/r-panel/main/rpanel"
+github_file_url="https://raw.githubusercontent.com/Rksingh090/r-panel/master/rpanel"
 
 # Set the target directory
 target_directory="/app/rpanel"
