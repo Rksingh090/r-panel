@@ -1,6 +1,6 @@
 # Docker-Based Application Deployment App with React JS UI
 
-Welcome to the Docker-Based Application Deployment App with React JS UI README! This document will provide you with essential information about setting up, configuring, and using this application to deploy Docker-based applications with a user-friendly React JS UI.
+Welcome to the Rpanel Docker-Based Application Deployment App with React JS UI README! This document will provide you with essential information about setting up, configuring, and using this application to deploy Docker-based applications with a user-friendly React JS UI.
 
 ## Table of Contents
 
@@ -16,7 +16,7 @@ Welcome to the Docker-Based Application Deployment App with React JS UI README! 
 
 ## Introduction
 
-The Docker-Based Application Deployment App is a powerful tool designed to simplify and streamline the deployment process of Docker-based applications. With an intuitive React JS user interface, this app enables users to easily manage, deploy, and monitor their containerized applications using Docker technology.
+Rpanel - The Docker based application deployment app is a powerful tool designed to simplify and streamline the deployment process of Docker-based applications. With an intuitive React JS user interface, this app enables users to easily manage, deploy, and monitor their containerized applications using Docker technology.
 
 ## Features
 
