@@ -85,7 +85,8 @@ if [ -f "$file_to_check" ]; then
     rm "$file_to_check"
 fi
 
-
+echo "Download Rpanel...."
+ 
 # Download the file using curl
 curl -fsSL -o "$target_directory/rpanel" "$github_file_url"
 
