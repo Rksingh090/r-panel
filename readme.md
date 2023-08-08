@@ -37,6 +37,8 @@ Before you begin, ensure you have the following prerequisites:
 - Docker (It will be automatically installed if not when running rpanel installation).
 - Modern web browser (for accessing the React JS UI)### Installation
 
+### Installation
+
 Download the binary 
 ```
 sudo curl -fsSL -o /home/install.sh https://raw.githubusercontent.com/Rksingh090/r-panel/master/install.sh
