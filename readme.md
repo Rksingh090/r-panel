@@ -1,7 +1,5 @@
 # Docker-Based Application Deployment App with React JS UI
 
-!Hello
-
 Welcome to the Docker-Based Application Deployment App with React JS UI README! This document will provide you with essential information about setting up, configuring, and using this application to deploy Docker-based applications with a user-friendly React JS UI.
 
 ## Table of Contents
