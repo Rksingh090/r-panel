@@ -12,7 +12,7 @@ ssl_directory="/etc/nginx/ssl"
 github_file_url="https://raw.githubusercontent.com/Rksingh090/r-panel/master/rpanel"
 
 checkCurl() {
-    if ! command -v curl; then
+    if ! command -v curl > /dev/null 2>&1; then
         echo "Installing Curl...";
         apt install curl -y
         echo "";
@@ -119,12 +119,14 @@ checkRPanelPaths(){
     if [ -f "$executable" ]; then
         # The file exists, remove it
         echo "Rpanel exists. Removing..."
+        echo ""
         rm "$executable"
     fi
 }
 
 downloadLatestRPanel(){
     echo "Downloading Rpanel...."
+    
     # Download the file
     curl -o "$main_directory/rpanel" "$github_file_url" > /dev/null 2>&1 &
 
@@ -133,28 +135,46 @@ downloadLatestRPanel(){
 
     echo -n "Downloading: "
 
+    # change color to green 
+    printf "\e[32m";
+
     while kill -0 $pid 2>/dev/null && [ $percentage -le 100 ]; do
         printf "\rDownloading: [%-50s] %d%%" "$([ $percentage -le 100 ] && printf '=%.0s' $(seq 1 $((percentage / 2))))" "$percentage"
         percentage=$((percentage + 1))
         sleep 0.1
     done
 
+    # reset the color 
+    printf "\e[0m";
+    
+
     echo "";
-    echo "Download completed."
+    echo "Download Completed."
+    echo "";
 
     # Check if the download was successful
     if [ $? -eq 0 ]; then
-        echo "File downloaded successfully to $main_directory/rpanel"
+        echo "File downloaded successfully to $main_directory/rpanel";
+        echo "";
     else
-        echo "Failed to download the file from GitHub."
+        echo "Failed to download the file from GitHub.";
+        echo "";
     fi
 
     sudo chmod +x /app/rpanel/rpanel
-
-
     
 }
 
+checkRpanelService(){
+    if sudo systemctl is-enabled "$service_name" >/dev/null 2>&1; then
+        echo "Service $service_name is enabled. Stopping and disabling..."
+        echo "";
+        # Stop the service
+        sudo systemctl stop "$service_name" >/dev/null 2>&1;
+        # Disable the service
+        sudo systemctl disable "$service_name" >/dev/null 2>&1;
+    fi
+}
 
 checkCurl
 checkDocker
@@ -162,16 +182,10 @@ checkNGINX
 checkPanelExist
 checkRPanelPaths
 downloadLatestRPanel
+checkRpanelService
 
 
 
-if sudo systemctl is-enabled "$service_name" >/dev/null 2>&1; then
-    echo "Service $service_name is enabled. Stopping and disabling..."
-    # Stop the service
-    sudo systemctl stop "$service_name"
-    # Disable the service
-    sudo systemctl disable "$service_name"
-fi
 
 sudo cat > /etc/systemd/system/rpanel.service <<EOF
 [Unit]
@@ -187,25 +201,23 @@ ExecStart=/app/rpanel/rpanel
 WantedBy=multi-user.target
 EOF
 
-sudo systemctl enable rpanel
+sudo systemctl enable rpanel >/dev/null 2>&1;
 
-#Start dauqu service
-sudo systemctl start rpanel
+#Start rpanel service
+sudo systemctl start rpanel >/dev/null 2>&1;
 
 print_success_message() {
     local message="RPanel Installed, Great Job !!!"
+    local author="Rishab Singh"
+    local url="https://github.com/Rksingh090"
+
     local color_green="\e[32m"
     local color_reset="\e[0m"
     
     new_message=$(cat << "EOF"
-$$$$$$$\  $$$$$$$\   $$$$$$\  $$\   $$\ $$$$$$$$\ $$\        
-$$  __$$\ $$  __$$\ $$  __$$\ $$$\  $$ |$$  _____|$$ |       
-$$ |  $$ |$$ |  $$ |$$ /  $$ |$$$$\ $$ |$$ |      $$ |       
-$$$$$$$  |$$$$$$$  |$$$$$$$$ |$$ $$\$$ |$$$$$\    $$ |       
-$$  __$$< $$  ____/ $$  __$$ |$$ \$$$$ |$$  __|   $$ |       
-$$ |  $$ |$$ |      $$ |  $$ |$$ |\$$$ |$$ |      $$ |       
-$$ |  $$ |$$ |      $$ |  $$ |$$ | \$$ |$$$$$$$$\ $$$$$$$$\  
-\__|  \__|\__|      \__|  \__|\__|  \__|\________|\________| 
+            ▒█▀▀█ ▒█▀▀█ ▒█▀▀█ ▒█▄  █ ▒█▀▀▀ ▒█ 
+            ▒█▄▄▀ ▒█▄▄█ ▒█▄▄█ ▒█ █ █ ▒█▀▀▀ ▒█ 
+            ▒█  █ ▒█    ▒█  █ ▒█  ▀█ ▒█▄▄▄ ▒█▄▄█
 EOF
 )
 
@@ -213,9 +225,17 @@ EOF
     echo ""
     printf "$new_message"
     echo ""
-    printf "${color_green}%s\n" "============================================================="
-    printf "${color_green}%s\n" "            $message"
-    printf "${color_green}%s\n" "============================================================="
+    echo ""
+    printf "${color_green}%s\n"     "============================================================="
+    printf "${color_green}\n"
+    printf "${color_green}%s\n"     "            $message"
+    printf "${color_green}\n"
+    printf "${color_green}%s\n"     "            Author - $author"
+    printf "${color_green}%s\n"     "            Github - $url"
+    printf "${color_green}\n"
+    printf "${color_green}%s\n"     "============================================================="
+    printf "${color_green}%s\n"     "            Open Rpanel on http://localhost:9000"
+    printf "${color_green}%s\n"     "============================================================="
     printf "${color_reset}\n"
 }
 

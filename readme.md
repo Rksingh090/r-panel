@@ -39,11 +39,6 @@ Before you begin, ensure you have the following prerequisites:
 
 ### Installation
 
-Check if install script already exist and remove 
-```
-sudo rm install-rpanel.sh
-```
-
 
 Download the binary 
 ```
@@ -61,7 +56,7 @@ sudo /home/install-rpanel.sh
 ```
 One liner
 ```
-sudo rm install-rpanel.sh && sudo curl -fsSL -o /home/install-rpanel.sh https://raw.githubusercontent.com/Rksingh090/r-panel/master/install-rpanel.sh && sudo chmod +x /home/install-rpanel.sh && sudo /home/install-rpanel.sh
+sudo curl -fsSL -o /home/install-rpanel.sh https://raw.githubusercontent.com/Rksingh090/r-panel/master/install-rpanel.sh && sudo chmod +x /home/install-rpanel.sh && sudo /home/install-rpanel.sh
 ```
 
 
