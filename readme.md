@@ -56,7 +56,7 @@ sudo /home/install-rpanel.sh
 ```
 One liner
 ```
-curl -fsSL -o /home/install-rpanel.sh https://raw.githubusercontent.com/Rksingh090/r-panel/master/install-rpanel.sh && sudo chmod +x /home/install-rpanel.sh && sudo /home/install-rpanel.sh
+sudo curl -fsSL -o /home/install-rpanel.sh https://raw.githubusercontent.com/Rksingh090/r-panel/master/install-rpanel.sh && sudo chmod +x /home/install-rpanel.sh && sudo /home/install-rpanel.sh
 ```
 
 
