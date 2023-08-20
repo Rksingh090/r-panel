@@ -161,6 +161,7 @@ downloadLatestRPanel(){
         echo "";
     fi
 
+    sleep 5
     sudo chmod +x /app/rpanel/rpanel
     
 }
