@@ -15,8 +15,10 @@ checkCurl() {
     if ! command -v curl; then
         echo "Installing Curl...";
         apt install curl -y
+        echo "";
     else
         echo "Curl Already Installed...";
+        echo "";
     fi
 }
 
@@ -37,8 +39,10 @@ checkDocker(){
         systemctl start docker
 
         echo "Docker installed successfully."
+        echo "";
     else 
         echo "Docker already installed...";
+        echo "";
     fi
 }
 
@@ -46,6 +50,7 @@ checkDocker(){
 checkNGINX(){
     if command -v nginx &>/dev/null; then
         echo "Nginx is already installed..."
+        echo "";
     else
         # Update package lists and install Nginx
         sudo apt update
@@ -56,6 +61,7 @@ checkNGINX(){
         sudo systemctl enable nginx
 
         echo "Nginx has been installed and started."
+        echo "";
     fi
 
     if [ ! -d "$ssl_directory" ]; then
@@ -64,8 +70,10 @@ checkNGINX(){
         echo "$ssl_directory does not exist. Creating it..."
         mkdir -p "$ssl_directory"
         echo "$ssl_directory created successfully."
+        echo "";
     else
         echo "$ssl_directory directory already exists."
+        echo "";
     fi
 }
 
