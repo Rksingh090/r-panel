@@ -136,41 +136,30 @@ checkRpanelService(){
     fi
 }
 
+
 downloadLatestRPanel(){
     echo "Downloading Rpanel...."
-    
-    # Download the file
-    curl -o "$main_directory/rpanel" "$github_file_url" > /dev/null 2>&1 &
+    echo "";
 
-    pid=$!
-    percentage=0
+    # curl -# -o "$main_directory/rpanel" "$github_file_url";
 
-    echo -n "Downloading: "
-
-    # change color to green 
+    # green color 
     printf "\e[32m";
 
-    while kill -0 $pid 2>/dev/null && [ $percentage -le 100 ]; do
-        printf "\rDownloading: [%-50s] %d%%" "$([ $percentage -le 100 ] && printf '=%.0s' $(seq 1 $((percentage / 2))))" "$percentage"
-        percentage=$((percentage + 1))
-        # sleep 0.1
-    done
+    # download command 
+    curl -# -o "$main_directory/rpanel" "$github_file_url";
 
     # reset the color 
     printf "\e[0m";
-    
 
-    echo "";
-    echo "Download Completed."
     echo "";
 
     # Check if the download was successful
-    if [ $? -eq 0 ]; then
-        echo "File downloaded successfully to $main_directory/rpanel";
-        echo "";
+    if [ -e "$executable" ]; then
+        echo "File Downloaded..."
     else
-        echo "Failed to download the file from GitHub.";
-        echo "";
+        echo "Unable to download file"
+        exit 1
     fi
 
     # sleep 5
