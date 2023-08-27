@@ -42,21 +42,17 @@ Before you begin, ensure you have the following prerequisites:
 
 Download the binary 
 ```
-sudo curl -fsSL -o /home/install-rpanel.sh https://raw.githubusercontent.com/Rksingh090/r-panel/master/install-rpanel.sh
-```
-
-Give Executable Permission 
-```
-sudo chmod +x /home/install-rpanel.sh
+sudo wget -O /home/install-rpanel.sh https://raw.githubusercontent.com/Rksingh090/r-panel/master/install-rpanel.sh -q
 ```
 
 Start the installation
 ```
 sudo /home/install-rpanel.sh
 ```
+
 One liner
 ```
-sudo curl -fsSL -o /home/install-rpanel.sh https://raw.githubusercontent.com/Rksingh090/r-panel/master/install-rpanel.sh && sudo chmod +x /home/install-rpanel.sh && sudo /home/install-rpanel.sh
+sudo wget -O /home/install-rpanel.sh https://raw.githubusercontent.com/Rksingh090/r-panel/master/install-rpanel.sh -q  && sudo /home/install-rpanel.sh
 ```
 
 
