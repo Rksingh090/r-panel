@@ -124,6 +124,18 @@ checkRPanelPaths(){
     fi
 }
 
+
+checkRpanelService(){
+    if sudo systemctl is-enabled "$service_name" >/dev/null 2>&1; then
+        echo "Service $service_name is enabled. Stopping and disabling..."
+        echo "";
+        # Stop the service
+        sudo systemctl stop "$service_name" >/dev/null 2>&1;
+        # Disable the service
+        sudo systemctl disable "$service_name" >/dev/null 2>&1;
+    fi
+}
+
 downloadLatestRPanel(){
     echo "Downloading Rpanel...."
     
@@ -141,7 +153,7 @@ downloadLatestRPanel(){
     while kill -0 $pid 2>/dev/null && [ $percentage -le 100 ]; do
         printf "\rDownloading: [%-50s] %d%%" "$([ $percentage -le 100 ] && printf '=%.0s' $(seq 1 $((percentage / 2))))" "$percentage"
         percentage=$((percentage + 1))
-        sleep 0.1
+        # sleep 0.1
     done
 
     # reset the color 
@@ -161,20 +173,9 @@ downloadLatestRPanel(){
         echo "";
     fi
 
-    sleep 5
+    # sleep 5
     sudo chmod +x /app/rpanel/rpanel
     
-}
-
-checkRpanelService(){
-    if sudo systemctl is-enabled "$service_name" >/dev/null 2>&1; then
-        echo "Service $service_name is enabled. Stopping and disabling..."
-        echo "";
-        # Stop the service
-        sudo systemctl stop "$service_name" >/dev/null 2>&1;
-        # Disable the service
-        sudo systemctl disable "$service_name" >/dev/null 2>&1;
-    fi
 }
 
 checkCurl
