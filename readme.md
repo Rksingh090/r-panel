@@ -34,10 +34,30 @@ Rpanel - The Docker based application deployment app is a powerful tool designed
 
 Before you begin, ensure you have the following prerequisites:
 
-- Docker (It will be automatically installed if not when running rpanel installation).
-- Modern web browser (for accessing the React JS UI)### Installation
+
+* Docker
+* Nginx
+* MongoDB
+
+> Note: If not already installed, It will be installed automatically
 
 ### Installation
+
+>---
+> Note: wget is required to download the executable, make
+>sure it is installed if not
+>install using command
+>
+>```
+>sudo apt install wget -y
+>```
+> 
+> or
+>
+>```
+> snap install wget
+>```
+> ------
 
 
 Download the binary 
