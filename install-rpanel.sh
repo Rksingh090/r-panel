@@ -182,8 +182,8 @@ checkDocker
 checkNGINX
 checkPanelExist
 checkRPanelPaths
-downloadLatestRPanel
 checkRpanelService
+downloadLatestRPanel
 
 
 
