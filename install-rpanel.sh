@@ -103,6 +103,11 @@ checkMongoDB(){
     fi
 }
 
+
+# run mongodb on docker 
+sudo docker 
+
+
 # check rpanel exists
 checkPanelExist(){
     # Check if the directory exists
