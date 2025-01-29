@@ -167,7 +167,7 @@ downloadLatestRPanel(){
         exit 1
     fi
 
-    # sleep 5
+    sleep 5
     sudo chmod +x /app/rpanel/rpanel
     
 }
@@ -197,6 +197,7 @@ ExecStart=/app/rpanel/rpanel
 WantedBy=multi-user.target
 EOF
 
+# enable the server
 sudo systemctl enable rpanel >/dev/null 2>&1;
 
 #Start rpanel service

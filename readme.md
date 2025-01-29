@@ -43,7 +43,6 @@ Before you begin, ensure you have the following prerequisites:
 
 ### Installation
 
->---
 > Note: wget is required to download the executable, make
 >sure it is installed if not
 >install using command
@@ -57,7 +56,6 @@ Before you begin, ensure you have the following prerequisites:
 >```
 > snap install wget
 >```
-> ------
 
 
 Download the binary 
@@ -70,9 +68,10 @@ Start the installation
 sudo /home/install-rpanel.sh
 ```
 
-One liner
+### One line installation
 ```
-sudo wget -O /home/install-rpanel.sh https://raw.githubusercontent.com/Rksingh090/r-panel/master/install-rpanel.sh -q  && sudo /home/install-rpanel.sh
+sudo wget -O /home/install-rpanel.sh https://raw.githubusercontent.com/Rksingh090/r-panel/master/install-rpanel.sh -q && sudo chmod +x /home/install-rpanel.sh && sudo /home/install-rpanel.sh
+
 ```
 
 
